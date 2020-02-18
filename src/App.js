@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import './App.css';
 import Person from './Person/Person';
 
-const App = props => {
-  const [personsState, setPersonsState] = useState({
+const App =  props => {
+
+  const [ personsState, setPersonsState ] = useState({
     persons: [
       { name: 'Max', age: 28},
       { name: 'Manu', age: 29},
@@ -11,18 +12,20 @@ const App = props => {
     ]
   });
 
-  console.log(personsState);
+  const [otherState, setOtherState] = useState('some other value');
+  console.log(personsState, otherState);
 
   const switchNameHandler = () => {
-    setPersonsState(
-      {persons: [
-        { name: 'Maximilian', age: 28},
-        { name: 'Manu', age: 29},
-        { name: 'Stephanie', age: 27}
-      ]
+    //console.log('was clicked');
+    setPersonsState ({
+        persons: [
+          { name: 'Maximilian', age: 28},
+          { name: 'Manu', age: 29},
+          { name: 'Stephanie', age: 27}
+      ], otherState: personsState.otherState
     });
   };
-
+  
   return (
     <div className="App">
       <h1>Hi, I'm a React App</h1>
